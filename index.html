@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#2e1a47" />
+    <title>Magic Nails by Val</title>
+    <link rel="manifest" href="manifest.json" />
+    <link rel="icon" href="img/icon-192.png" />
+    <link rel="apple-touch-icon" href="img/icon-192.png" />
+    <link rel="stylesheet" href="css/estilos.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600&display=swap" />
+  </head>
+
+  <body>
+    <header>
+      <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <a class="marca" href="#inicio">
+        <img src="img/logo.png" alt="Magic Nails by Val" />
+      </a>
+      <button id="theme-toggle" class="theme-toggle" aria-label="Cambiar tema">
+        <i class="fa-solid fa-moon"></i>
+      </button>
+    </header>
+
+    <nav>
+      <ul>
+        <li><a href="#inicio"><i class="fa-solid fa-house"></i> Inicio</a></li>
+        <li><a href="#servicios"><i class="fa-solid fa-hand-sparkles"></i> Servicios</a></li>
+        <li><a href="#reservar"><i class="fa-regular fa-calendar-check"></i> Reservar turno</a></li>
+        <li><a href="#turnos"><i class="fa-regular fa-clock"></i> Mis turnos</a></li>
+        <li><a href="#contacto"><i class="fa-solid fa-location-dot"></i> Contacto</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <section id="inicio" class="hero">
+        <img class="hero-logo" src="img/logo.png" alt="Magic Nails by Val" />
+        <h1>Uñas que hablan por vos</h1>
+        <p>Semipermanente, soft gel, esculpidas y decoración. Reservá tu turno online en segundos.</p>
+        <div class="botones">
+          <a class="boton" href="#reservar">Reservar turno</a>
+          <a class="boton claro" href="#servicios">Ver servicios</a>
+        </div>
+      </section>
+
+      <section id="servicios">
+        <h2>Servicios</h2>
+        <p class="sub">Elegí el que más te guste y reservá.</p>
+        <div id="lista-servicios"></div>
+      </section>
+
+      <section id="reservar">
+        <h2>Reservar turno</h2>
+        <p class="sub">Completá tus datos y listo.</p>
+        <form id="form-turno">
+          <label>Nombre
+            <input type="text" name="nombre" required />
+          </label>
+          <label>Servicio
+            <select name="servicio" id="servicio" required></select>
+          </label>
+          <label>Fecha
+            <input type="date" name="fecha" required />
+          </label>
+          <label>Horario
+            <select name="hora" id="hora" required></select>
+          </label>
+          <button class="boton" type="submit">Confirmar turno</button>
+        </form>
+      </section>
+
+      <section id="turnos">
+        <h2>Mis turnos</h2>
+        <div id="lista-turnos"></div>
+      </section>
+
+      <section id="contacto">
+        <div class="contacto">
+          <h2>Magic Nails by Val</h2>
+          <p><i class="fa-regular fa-clock"></i> Lunes a sábado, de 10 a 18 hs</p>
+          <p><i class="fa-solid fa-location-dot"></i> Home Studio · Castañares 432</p>
+          <div class="botones">
+            <a class="boton" href="https://wa.me/5493876517420" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+            <a class="boton claro" href="https://instagram.com/magicnailsbyval_" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i> Instagram</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <a class="fab" href="#reservar"><i class="fa-regular fa-calendar-plus"></i> Reservar</a>
+
+    <footer>© 2026 Florencia Valeria Rojas</footer>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>

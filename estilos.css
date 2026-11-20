@@ -1,0 +1,218 @@
+/* ===== VARIABLES ===== */
+:root {
+  --violeta-900: #2e1a47;
+  --violeta-700: #6b3fa0;
+  --violeta-500: #9b6bc4;
+  --violeta-100: #f3ebff;
+  --rosa: #e58bb8;
+  --ciruela: #2e1a47;
+  --blanco: #ffffff;
+  --fondo: #faf6fd;
+  --texto: #2a2235;
+  --texto-suave: #6b5e7d;
+  --borde: #e8dff3;
+  --sombra: rgba(66, 39, 101, 0.14);
+}
+
+/* ===== MODO OSCURO: solo cambian las variables ===== */
+body.modo-oscuro {
+  --violeta-900: #e3ceff;
+  --violeta-700: #c9a2ff;
+  --violeta-100: #2a2040;
+  --rosa: #f2a6c8;
+  --ciruela: #211a33;
+  --blanco: #1a1528;
+  --fondo: #130f1c;
+  --texto: #f1ecf7;
+  --texto-suave: #bcaecf;
+  --borde: #2d2440;
+  --sombra: rgba(0, 0, 0, 0.45);
+  color-scheme: dark;
+}
+
+/* ===== BASE ===== */
+html { scroll-behavior: smooth; scroll-padding-top: 70px; }
+
+body {
+  margin: 0;
+  padding-top: 60px;
+  font-family: 'Poppins', Arial, sans-serif;
+  background: var(--fondo);
+  color: var(--texto);
+  transition: background 0.3s, color 0.3s;
+}
+
+h1, h2, h3 { font-family: 'Playfair Display', Georgia, serif; }
+a { color: inherit; text-decoration: none; }
+
+/* ===== HEADER Y MENÚ SÁNDWICH ===== */
+header {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 60px;
+  padding: 0 12px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--blanco);
+  border-bottom: 1px solid var(--borde);
+  z-index: 10;
+}
+
+.marca img { display: block; height: 34px; }
+body.modo-oscuro .marca img { filter: brightness(0) invert(1); } /* logo blanco en modo oscuro */
+
+.menu-toggle, .theme-toggle {
+  width: 44px; height: 44px;
+  background: transparent;
+  border: 0;
+  font-size: 1.35rem;
+  color: var(--violeta-900);
+  cursor: pointer;
+}
+
+nav {
+  position: fixed;
+  top: 60px; left: -100%;
+  width: 78%; max-width: 300px;
+  height: calc(100% - 60px);
+  background: var(--blanco);
+  box-shadow: 6px 0 20px var(--sombra);
+  transition: left 0.3s ease;
+  z-index: 9;
+}
+nav.activo { left: 0; }
+
+nav ul { list-style: none; margin: 0; padding: 12px; }
+nav a {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  font-weight: 500;
+  color: var(--violeta-900);
+}
+nav a i { width: 20px; text-align: center; color: var(--rosa); }
+nav a:hover { background: var(--violeta-100); }
+
+/* ===== SECCIONES ===== */
+section { max-width: 700px; margin: 0 auto; padding: 34px 18px 10px; }
+h2 { font-size: 1.8rem; margin: 0 0 4px; color: var(--violeta-900); }
+.sub { margin: 0 0 20px; color: var(--texto-suave); font-size: 0.92rem; }
+
+/* ===== BOTONES ===== */
+.boton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 24px;
+  background: var(--rosa);
+  color: #2e1a47;
+  border: 0;
+  border-radius: 28px;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+.boton.claro { background: transparent; color: #fff; border: 1.5px solid rgba(255, 255, 255, 0.8); }
+.botones { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+
+/* ===== HERO ===== */
+.hero {
+  max-width: none;
+  min-height: 72vh;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 24px 50px;
+  color: #fff;
+  border-radius: 0 0 36px 36px;
+  background:
+    radial-gradient(circle at 15% 10%, rgba(212, 178, 255, 0.55), transparent 45%),
+    radial-gradient(circle at 90% 90%, rgba(229, 139, 184, 0.35), transparent 45%),
+    linear-gradient(160deg, #8a55c9 0%, #6b3fa0 45%, #2e1a47 100%);
+}
+.hero-logo { width: min(280px, 80%); margin-bottom: 20px; filter: brightness(0) invert(1); }
+.hero h1 { font-size: 1.9rem; line-height: 1.15; margin: 0 0 12px; }
+.hero p { max-width: 320px; margin: 0 0 26px; color: rgba(255, 255, 255, 0.85); line-height: 1.6; }
+
+/* ===== FOTO (con ícono de respaldo si falta la imagen) ===== */
+.foto {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, var(--violeta-500), var(--rosa));
+}
+.foto i { font-size: 2rem; color: rgba(255, 255, 255, 0.85); }
+.foto img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+
+/* ===== SERVICIOS ===== */
+.servicio, form, .turno {
+  background: var(--blanco);
+  border: 1px solid var(--borde);
+  border-radius: 20px;
+  box-shadow: 0 8px 22px var(--sombra);
+}
+
+.servicio { display: flex; gap: 14px; margin-bottom: 14px; overflow: hidden; }
+.servicio .foto { flex: 0 0 128px; min-height: 170px; }
+.servicio-info { flex: 1; display: flex; flex-direction: column; padding: 14px 14px 14px 0; }
+.servicio h3 { margin: 0 0 4px; font-size: 1.1rem; color: var(--violeta-900); }
+.servicio p { margin: 0 0 10px; font-size: 0.8rem; line-height: 1.45; color: var(--texto-suave); }
+.meta { display: flex; justify-content: space-between; align-items: center; margin-top: auto; }
+.precio { font-size: 1.15rem; font-weight: 600; color: var(--violeta-700); }
+.mini { padding: 8px 14px; border-radius: 20px; background: var(--violeta-100); color: var(--violeta-900); font-size: 0.8rem; font-weight: 600; }
+
+/* ===== FORMULARIO ===== */
+form { display: grid; gap: 14px; padding: 20px; }
+label { font-weight: 500; font-size: 0.88rem; }
+input, select {
+  width: 100%;
+  margin-top: 6px;
+  padding: 13px;
+  box-sizing: border-box;
+  font: inherit;
+  background: var(--fondo);
+  color: var(--texto);
+  border: 1px solid var(--borde);
+  border-radius: 12px;
+}
+
+/* ===== TURNOS ===== */
+.turno { display: flex; justify-content: space-between; align-items: center; padding: 16px; margin-bottom: 12px; line-height: 1.5; border-left: 5px solid var(--rosa); }
+.turno small { color: var(--texto-suave); }
+.turno button { background: transparent; border: 0; font-size: 1.1rem; color: #d94b6a; cursor: pointer; padding: 10px; }
+.vacio { text-align: center; color: var(--texto-suave); }
+
+/* ===== CONTACTO ===== */
+.contacto { padding: 28px 22px; text-align: center; color: #fff; background: var(--ciruela); border-radius: 24px; }
+.contacto h2 { color: #fff; margin-bottom: 14px; }
+.contacto p { margin: 6px 0; color: rgba(255, 255, 255, 0.85); }
+.contacto i { color: var(--rosa); margin-right: 6px; }
+.contacto .botones { margin-top: 20px; }
+.contacto .boton i { color: inherit; margin: 0; }
+
+/* ===== BOTÓN FLOTANTE ===== */
+.fab {
+  position: fixed;
+  right: 16px; bottom: 18px;
+  z-index: 8;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 20px;
+  background: var(--rosa);
+  color: #2e1a47;
+  border-radius: 30px;
+  font-weight: 600;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+footer { text-align: center; padding: 30px 20px 90px; color: var(--texto-suave); font-size: 0.8rem; }
